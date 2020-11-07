@@ -23,8 +23,11 @@ export const Button = styled.button<IButtonProps>`
   white-space: nowrap;
 
   position: relative;
+  transition: all 0.4s;
 
-
+  &&:hover {
+    border: 3px solid #666;
+  }
 
   &&::after {
     content: '${props => props.legend}';
