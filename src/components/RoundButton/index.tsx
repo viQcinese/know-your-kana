@@ -1,13 +1,21 @@
-import React from 'react';
+import React from  'react'
 
-import { Button } from './styles';
+import { Button } from './styles'
 
-const RoundButton: React.FC = () => {
+interface IRoundButtonProps {
+  content?: string;
+  onClick?: () => void;
+  legend?: string;
+}
+
+const RoundButton: React.FC<IRoundButtonProps> = ({ content, legend, onClick, children }) => {
   return (
     <>
-      <Button />
+      <Button onClick={onClick} legend={legend}>
+        { children }
+      </Button>
     </>
-  );
-};
+  )
+}
 
-export default RoundButton;
+export default RoundButton

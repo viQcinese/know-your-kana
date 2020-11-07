@@ -79,6 +79,7 @@ export const hiraganaKeyMap: IKeyMap = {
   pi: 'ぴ',
   po: 'ぽ',
   pu: 'ぷ',
+  n: 'ん',
   kya: 'きゃ',
   kyu: 'きゅ',
   kyo: 'きょ',
@@ -185,6 +186,7 @@ export const hiragana = [
   'ぴ',
   'ぽ',
   'ぷ',
+  'ん'
 ];
 
 export const composedHiragana = [
@@ -297,6 +299,7 @@ export const katakanaKeyMap: IKeyMap = {
   pi: 'ピ',
   po: 'ポ',
   pu: 'プ',
+  n: 'ン',
   kya: 'キャ',
   kyu: 'キュ',
   kyo: 'キョ',
@@ -403,6 +406,7 @@ export const katakana = [
   'ピ',
   'ポ',
   'プ',
+  'ン'
 ];
 
 export const composedKatakana = [

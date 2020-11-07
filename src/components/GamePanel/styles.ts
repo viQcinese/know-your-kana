@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 100px;
 `;
 
 export const Input = styled.input`
@@ -21,6 +22,8 @@ export const KanaDisplay = styled.span`
   font-size: 196px;
   color: #2a8020;
   user-select: none;
+  margin-bottom: 16px;
+  -webkit-font-smoothing: antialiased;
 `;
 
 export const Score = styled.span``;

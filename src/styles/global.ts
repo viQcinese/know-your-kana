@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 :root {
-  --color-background: #f5faf5;
+  --color-background: #fafaf5;
 }
 
 * {
@@ -11,6 +11,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    /* -webkit-font-smoothing: antialiased */
   }
 
 button {
@@ -19,5 +20,6 @@ button {
 
 body {
   background: var(--color-background);
+  height: 100vh;
 }
 `;

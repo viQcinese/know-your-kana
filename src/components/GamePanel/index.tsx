@@ -46,6 +46,7 @@ const GamePanel: React.FC<GamePanelProps> = ({ focus, kanaType, isComposedKana }
   // Handle ComposedKana Change
   useEffect(() => {
     setKanaList(() => buildKanaList())
+    console.log(kanaList)
   }, [isComposedKana])
 
   // BuildKanaList
@@ -57,7 +58,7 @@ const GamePanel: React.FC<GamePanelProps> = ({ focus, kanaType, isComposedKana }
 
     } else if (kanaType === "katakana") {
       return isComposedKana
-      ? shuffle([...katakana, composedKatakana])
+      ? shuffle([...katakana, ...composedKatakana])
       : shuffle([...katakana])
 
     } else return []
