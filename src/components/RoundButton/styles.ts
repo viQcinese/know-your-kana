@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 interface IButtonProps {
   legend?: string;
+  fixedLegend?: string;
 }
 
 export const Button = styled.button<IButtonProps>`
   width: 55px;
   height: 55px;
-  margin: 8px;
+  margin: 5px;
   border-radius: 50%;
   border: none;
   border: 1px solid #d2d2c8;
@@ -23,10 +24,10 @@ export const Button = styled.button<IButtonProps>`
   white-space: nowrap;
 
   position: relative;
-  transition: all 0.4s;
+  transition: box-shadow 0.1s linear;
 
   &&:hover {
-    border: 3px solid #666;
+    box-shadow: 0px 0px 0px 2px #fc5185;
   }
 
   &&::after {
@@ -36,16 +37,10 @@ export const Button = styled.button<IButtonProps>`
     color: transparent;
     position: absolute;
     top: 55px;
-    transition: 0.2s;
+    transition: 0.4s;
   }
 
   &&:hover::after {
-    content: '${props => props.legend}';
-    font-size: 16px;
-    font-weight: normal;
     color: black;
-    position: absolute;
-    top: 55px;
-    transition: 0.2s;
   }
 `;

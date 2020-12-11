@@ -1,80 +1,139 @@
-import React from 'react'
+import React from 'react';
+import { IKanaControlBlocks } from '../../utils/kanaControl';
+import Checkbox from './Checkbox';
 
-import { Table } from './styles'
+import { Table, Modal, Kana } from './styles';
 
 interface IKanaTable {
   kanaType: string;
+  kanaControlBlocks: IKanaControlBlocks;
+  handleSetKanaControlBlocks: (
+    newKanaControlBlocks: IKanaControlBlocks,
+  ) => void;
 }
 
-const KanaTable: React.FC<IKanaTable> = ({ kanaType }) => {
+const KanaTable: React.FC<IKanaTable> = ({
+  kanaType,
+  kanaControlBlocks,
+  handleSetKanaControlBlocks,
+}) => {
   return (
-    <Table>
-      <tr>
-        <td>{kanaType === 'hiragana' ? 'あ' : 'ア'}</td>
-        <td>{kanaType === 'hiragana' ? 'い' : 'イ'}</td>
-        <td>{kanaType === 'hiragana' ? 'う' : 'ウ'}</td>
-        <td>{kanaType === 'hiragana' ? 'え' : 'エ'}</td>
-        <td>{kanaType === 'hiragana' ? 'お' : 'オ'}</td>
-      </tr>
-      <tr>
-        <td>{kanaType === 'hiragana' ? 'か' : 'カ'}</td>
-        <td>{kanaType === 'hiragana' ? 'き' : 'キ'}</td>
-        <td>{kanaType === 'hiragana' ? 'く' : 'ク'}</td>
-        <td>{kanaType === 'hiragana' ? 'け' : 'ケ'}</td>
-        <td>{kanaType === 'hiragana' ? 'こ' : 'コ'}</td>
-      </tr>
-      <tr>
-        <td>{kanaType === 'hiragana' ? 'さ' : 'サ'}</td>
-        <td>{kanaType === 'hiragana' ? 'し' : 'シ'}</td>
-        <td>{kanaType === 'hiragana' ? 'す' : 'ス'}</td>
-        <td>{kanaType === 'hiragana' ? 'せ' : 'セ'}</td>
-        <td>{kanaType === 'hiragana' ? 'そ' : 'ソ'}</td>
-      </tr>
-      <tr>
-        <td>{kanaType === 'hiragana' ? 'た' : 'タ'}</td>
-        <td>{kanaType === 'hiragana' ? 'ち' : 'チ'}</td>
-        <td>{kanaType === 'hiragana' ? 'つ' : 'ツ'}</td>
-        <td>{kanaType === 'hiragana' ? 'て' : 'テ'}</td>
-        <td>{kanaType === 'hiragana' ? 'と' : 'ト'}</td>
-      </tr><tr>
-        <td>{kanaType === 'hiragana' ? 'な' : 'ナ'}</td>
-        <td>{kanaType === 'hiragana' ? 'に' : 'ニ'}</td>
-        <td>{kanaType === 'hiragana' ? 'ぬ' : 'ヌ'}</td>
-        <td>{kanaType === 'hiragana' ? 'ね' : 'ネ'}</td>
-        <td>{kanaType === 'hiragana' ? 'の' : 'ノ'}</td>
-      </tr><tr>
-        <td>{kanaType === 'hiragana' ? 'は' : 'ハ'}</td>
-        <td>{kanaType === 'hiragana' ? 'ひ' : 'ヒ'}</td>
-        <td>{kanaType === 'hiragana' ? 'ふ' : 'フ'}</td>
-        <td>{kanaType === 'hiragana' ? 'へ' : 'ヘ'}</td>
-        <td>{kanaType === 'hiragana' ? 'ほ' : 'ホ'}</td>
-      </tr><tr>
-        <td>{kanaType === 'hiragana' ? 'ま' : 'マ'}</td>
-        <td>{kanaType === 'hiragana' ? 'み' : 'ミ'}</td>
-        <td>{kanaType === 'hiragana' ? 'む' : 'ム'}</td>
-        <td>{kanaType === 'hiragana' ? 'め' : 'メ'}</td>
-        <td>{kanaType === 'hiragana' ? 'も' : 'モ'}</td>
-      </tr><tr>
-        <td>{kanaType === 'hiragana' ? 'や' : 'ヤ'}</td>
-        <td>{kanaType === 'hiragana' ? '' : ''}</td>
-        <td>{kanaType === 'hiragana' ? 'ゆ' : 'ユ'}</td>
-        <td>{kanaType === 'hiragana' ? '' : ''}</td>
-        <td>{kanaType === 'hiragana' ? 'よ' : 'ヨ'}</td>
-      </tr><tr>
-        <td>{kanaType === 'hiragana' ? 'ら' : 'ラ'}</td>
-        <td>{kanaType === 'hiragana' ? 'り' : 'リ'}</td>
-        <td>{kanaType === 'hiragana' ? 'る' : 'ル'}</td>
-        <td>{kanaType === 'hiragana' ? 'れ' : 'レ'}</td>
-        <td>{kanaType === 'hiragana' ? 'ろ' : 'ロ'}</td>
-      </tr><tr>
-        <td>{kanaType === 'hiragana' ? 'わ' : 'ワ'}</td>
-        <td>{kanaType === 'hiragana' ? '' : ''}</td>
-        <td>{kanaType === 'hiragana' ? 'ん' : 'ン'}</td>
-        <td>{kanaType === 'hiragana' ? '' : ''}</td>
-        <td>{kanaType === 'hiragana' ? 'を' : 'ヲ'}</td>
-      </tr>
-    </Table>
-  )
-}
+    <Modal>
+      <h1>Kana Table</h1>
+      <Table id="kana-table">
+        <Checkbox
+          kanaRow="a"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="a">{kanaType === 'hiragana' ? 'あ' : 'ア'}</Kana>
+        <Kana translation="i">{kanaType === 'hiragana' ? 'い' : 'イ'}</Kana>
+        <Kana translation="u">{kanaType === 'hiragana' ? 'う' : 'ウ'}</Kana>
+        <Kana translation="e">{kanaType === 'hiragana' ? 'え' : 'エ'}</Kana>
+        <Kana translation="o">{kanaType === 'hiragana' ? 'お' : 'オ'}</Kana>
 
-export default KanaTable
+        <Checkbox
+          kanaRow="k"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="ka">{kanaType === 'hiragana' ? 'か' : 'カ'}</Kana>
+        <Kana translation="ki">{kanaType === 'hiragana' ? 'き' : 'キ'}</Kana>
+        <Kana translation="ku">{kanaType === 'hiragana' ? 'く' : 'ク'}</Kana>
+        <Kana translation="ke">{kanaType === 'hiragana' ? 'け' : 'ケ'}</Kana>
+        <Kana translation="ko">{kanaType === 'hiragana' ? 'こ' : 'コ'}</Kana>
+
+        <Checkbox
+          kanaRow="s"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="sa">{kanaType === 'hiragana' ? 'さ' : 'サ'}</Kana>
+        <Kana translation="shi">{kanaType === 'hiragana' ? 'し' : 'シ'}</Kana>
+        <Kana translation="su">{kanaType === 'hiragana' ? 'す' : 'ス'}</Kana>
+        <Kana translation="se">{kanaType === 'hiragana' ? 'せ' : 'セ'}</Kana>
+        <Kana translation="so">{kanaType === 'hiragana' ? 'そ' : 'ソ'}</Kana>
+
+        <Checkbox
+          kanaRow="t"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="ta">{kanaType === 'hiragana' ? 'た' : 'タ'}</Kana>
+        <Kana translation="chi">{kanaType === 'hiragana' ? 'ち' : 'チ'}</Kana>
+        <Kana translation="tsu">{kanaType === 'hiragana' ? 'つ' : 'ツ'}</Kana>
+        <Kana translation="te">{kanaType === 'hiragana' ? 'て' : 'テ'}</Kana>
+        <Kana translation="to">{kanaType === 'hiragana' ? 'と' : 'ト'}</Kana>
+
+        <Checkbox
+          kanaRow="n"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+
+        <Kana translation="na">{kanaType === 'hiragana' ? 'な' : 'ナ'}</Kana>
+        <Kana translation="ni">{kanaType === 'hiragana' ? 'に' : 'ニ'}</Kana>
+        <Kana translation="nu">{kanaType === 'hiragana' ? 'ぬ' : 'ヌ'}</Kana>
+        <Kana translation="ne">{kanaType === 'hiragana' ? 'ね' : 'ネ'}</Kana>
+        <Kana translation="no">{kanaType === 'hiragana' ? 'の' : 'ノ'}</Kana>
+
+        <Checkbox
+          kanaRow="h"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="ha">{kanaType === 'hiragana' ? 'は' : 'ハ'}</Kana>
+        <Kana translation="hi">{kanaType === 'hiragana' ? 'ひ' : 'ヒ'}</Kana>
+        <Kana translation="fu">{kanaType === 'hiragana' ? 'ふ' : 'フ'}</Kana>
+        <Kana translation="he">{kanaType === 'hiragana' ? 'へ' : 'ヘ'}</Kana>
+        <Kana translation="ho">{kanaType === 'hiragana' ? 'ほ' : 'ホ'}</Kana>
+
+        <Checkbox
+          kanaRow="m"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="ma">{kanaType === 'hiragana' ? 'ま' : 'マ'}</Kana>
+        <Kana translation="mi">{kanaType === 'hiragana' ? 'み' : 'ミ'}</Kana>
+        <Kana translation="mu">{kanaType === 'hiragana' ? 'む' : 'ム'}</Kana>
+        <Kana translation="me">{kanaType === 'hiragana' ? 'め' : 'メ'}</Kana>
+        <Kana translation="mo">{kanaType === 'hiragana' ? 'も' : 'モ'}</Kana>
+
+        <Checkbox
+          kanaRow="y"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="ya">{kanaType === 'hiragana' ? 'や' : 'ヤ'}</Kana>
+        <span>{kanaType === 'hiragana' ? '' : ''}</span>
+        <Kana translation="yu">{kanaType === 'hiragana' ? 'ゆ' : 'ユ'}</Kana>
+        <span>{kanaType === 'hiragana' ? '' : ''}</span>
+        <Kana translation="yo">{kanaType === 'hiragana' ? 'よ' : 'ヨ'}</Kana>
+
+        <Checkbox
+          kanaRow="r"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="ra">{kanaType === 'hiragana' ? 'ら' : 'ラ'}</Kana>
+        <Kana translation="ri">{kanaType === 'hiragana' ? 'り' : 'リ'}</Kana>
+        <Kana translation="ru">{kanaType === 'hiragana' ? 'る' : 'ル'}</Kana>
+        <Kana translation="re">{kanaType === 'hiragana' ? 'れ' : 'レ'}</Kana>
+        <Kana translation="ro">{kanaType === 'hiragana' ? 'ろ' : 'ロ'}</Kana>
+
+        <Checkbox
+          kanaRow="w"
+          kanaControlBlocks={kanaControlBlocks}
+          handleSetKanaControlBlocks={handleSetKanaControlBlocks}
+        />
+        <Kana translation="wa">{kanaType === 'hiragana' ? 'わ' : 'ワ'}</Kana>
+        <span>{kanaType === 'hiragana' ? '' : ''}</span>
+        <Kana translation="n">{kanaType === 'hiragana' ? 'ん' : 'ン'}</Kana>
+        <span>{kanaType === 'hiragana' ? '' : ''}</span>
+        <Kana translation="wo">{kanaType === 'hiragana' ? 'を' : 'ヲ'}</Kana>
+      </Table>
+    </Modal>
+  );
+};
+
+export default KanaTable;

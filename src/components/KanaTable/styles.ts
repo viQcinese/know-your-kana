@@ -1,31 +1,50 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Table = styled.table`
+export const Modal = styled.div`
+  position: absolute;
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+
+  h1 {
+    margin-bottom: 16px;
+    color: #333;
+  }
+`;
+
+export const Table = styled.div`
+  display: grid;
+  grid-template-columns: 45px 65px 65px 65px 65px 65px;
+  grid-template-rows: 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+
+  align-items: center;
+  justify-items: center;
+
+  button {
+    outline: none;
+    border: none;
+    background: none;
+  }
+`;
+
+interface IKana {
+  translation: string;
+}
+
+export const Kana = styled.div<IKana>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &&::before {
+    content: '${props => props.translation}';
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
     position: absolute;
-    border-collapse: separate;
-    border-spacing: 0;
-    text-align: center;
-    line-height: 1.5rem;
-    color: #470e0e;
-
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-
-    td {
-      padding: 8px 16px;
-    }
-
-    td:first-child {
-      text-align: start;
-    }
-
-    td + td {
-      border-left: 1px solid rgb(0, 0, 0, 0.15);
-    }
-
-    tr:not(:last-child) > td {
-      border-bottom: 1px solid rgb(0, 0, 0, 0.15);
-    }
-
-`
+    top: 30px;
+    transition: 0.4s;
+  }
+`;

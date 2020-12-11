@@ -1,4 +1,3 @@
-import { create } from 'domain';
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
@@ -11,7 +10,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: 0;
-    /* -webkit-font-smoothing: antialiased */
+    font-family: 'Roboto', sans-serif;
   }
 
 button {

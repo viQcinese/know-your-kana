@@ -33,10 +33,11 @@
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+      "react/prop-types": "off",
       "import/prefer-default-export": "off",
       "import/extensions": ["error", "ignorePackages", {"ts": "never", "tsx": "never" } ],
       "no-plusplus": "off",
-      "no-param-reassign": "off",
+      "no-param-reassign": "off"
     },
     "settings": {
       "import/resolver": {

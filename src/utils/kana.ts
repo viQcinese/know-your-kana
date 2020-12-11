@@ -186,7 +186,7 @@ export const hiragana = [
   'ぴ',
   'ぽ',
   'ぷ',
-  'ん'
+  'ん',
 ];
 
 export const composedHiragana = [
@@ -406,7 +406,7 @@ export const katakana = [
   'ピ',
   'ポ',
   'プ',
-  'ン'
+  'ン',
 ];
 
 export const composedKatakana = [

@@ -5,64 +5,84 @@ import shuffle from '../../utils/arrayShuffle';
 
 import { Container, Input, KanaDisplay, Score } from './styles';
 
-import {hiragana, composedHiragana, katakana, composedKatakana, hiraganaKeyMap, katakanaKeyMap} from '../../utils/kana'
+import {
+  hiragana,
+  composedHiragana,
+  katakana,
+  composedKatakana,
+  hiraganaKeyMap,
+  katakanaKeyMap,
+} from '../../utils/kana';
 
 interface GamePanelProps {
   focus: boolean;
   kanaType: string;
   isComposedKana: boolean;
+  kanaControl: {
+    [key: string]: boolean;
+  };
 }
 
-const GamePanel: React.FC<GamePanelProps> = ({ focus, kanaType, isComposedKana }) => {
+const GamePanel: React.FC<GamePanelProps> = ({
+  focus,
+  kanaType,
+  isComposedKana,
+  kanaControl,
+}) => {
   const [kanaList, setKanaList] = useState(() => {
-    const array = [...hiragana];
-    const shuffled = shuffle(array);
-    return shuffled;
+    const kanaArray = kanaType === 'hiragana' ? [...hiragana] : [...katakana];
+    const shuffledKanaArray = shuffle(kanaArray);
+    return shuffledKanaArray;
   });
-
   const [input, setInput] = useState('');
   const [attempts, setAttempts] = useState(0);
   const [score, setScore] = useState(0);
-  const [keyMap, setKeyMap] = useState({} as {[key: string]: string})
+  const [keyMap, setKeyMap] = useState(() => {
+    return kanaType === 'hiragana' ? hiraganaKeyMap : katakanaKeyMap;
+  });
 
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Input Focus
+  // BuildKanaList
+  const buildKanaList = useCallback((): string[] => {
+    if (kanaType === 'hiragana') {
+      const unfilteredKanaList = isComposedKana
+        ? shuffle([...hiragana, ...composedHiragana])
+        : shuffle([...hiragana]);
+      return unfilteredKanaList.filter(e => kanaControl[e]);
+    }
+
+    if (kanaType === 'katakana') {
+      const unfilteredKanaList = isComposedKana
+        ? shuffle([...katakana, ...composedKatakana])
+        : shuffle([...katakana]);
+      return unfilteredKanaList.filter(e => kanaControl[e]);
+    }
+
+    return [];
+  }, [kanaType, isComposedKana, kanaControl]);
+
+  // Input Focus when Focus state change
   useEffect(() => {
-    inputRef.current?.focus()
-  }, [focus])
+    // eslint-disable-next-line no-unused-expressions
+    inputRef.current?.focus();
+  }, [focus]);
 
   // Handle KanaType Change
   useEffect(() => {
-    setKanaList(() => buildKanaList())
+    setKanaList(() => buildKanaList());
 
-    if (kanaType === "hiragana") {
-      setKeyMap(hiraganaKeyMap)
-    } else if (kanaType === "katakana") {
-      setKeyMap(katakanaKeyMap)
+    if (kanaType === 'hiragana') {
+      setKeyMap(hiraganaKeyMap);
+    } else if (kanaType === 'katakana') {
+      setKeyMap(katakanaKeyMap);
     }
-  }, [kanaType])
+  }, [kanaType, buildKanaList]);
 
   // Handle ComposedKana Change
   useEffect(() => {
-    setKanaList(() => buildKanaList())
-    console.log(kanaList)
-  }, [isComposedKana])
-
-  // BuildKanaList
-  const buildKanaList = useCallback((): any[] => {
-    if (kanaType === "hiragana") {
-      return isComposedKana
-        ? shuffle([...hiragana, ...composedHiragana])
-        : shuffle([...hiragana])
-
-    } else if (kanaType === "katakana") {
-      return isComposedKana
-      ? shuffle([...katakana, ...composedKatakana])
-      : shuffle([...katakana])
-
-    } else return []
-  }, [kanaType])
+    setKanaList(() => buildKanaList());
+  }, [isComposedKana, buildKanaList]);
 
   // Update Displayed Kana
   const updateKana = useCallback(() => {
@@ -70,11 +90,11 @@ const GamePanel: React.FC<GamePanelProps> = ({ focus, kanaType, isComposedKana }
       setKanaList(old => old.slice(1, old.length));
     } else {
       setKanaList(() => {
-        const array = buildKanaList()
-        return array
+        const array = buildKanaList();
+        return array;
       });
     }
-  }, [kanaList]);
+  }, [kanaList, buildKanaList]);
 
   // Handle Input Submit
   const handleSubmit = useCallback(
@@ -92,7 +112,7 @@ const GamePanel: React.FC<GamePanelProps> = ({ focus, kanaType, isComposedKana }
         setInput('');
       }
     },
-    [input, updateKana, kanaList],
+    [input, updateKana, kanaList, keyMap],
   );
 
   // Handle Input Change
