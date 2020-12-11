@@ -18,7 +18,7 @@ The japanese language has two alphabets that represent every possible sound in j
 -  User preferences will be remembered the next time user accesss the application
 
 ## Tecnologies
-<img align="left" alt="react" height="24px" src="https://raw.githubusercontent.com/viQcinese/viQcinese/master/src/react.svg" />ReactNative <br>
+<img align="left" alt="react" height="24px" src="https://raw.githubusercontent.com/viQcinese/viQcinese/master/src/react.svg" />ReactJS <br>
 <img align="left" alt="typescript" height="24px" src="https://raw.githubusercontent.com/viQcinese/viQcinese/master/src/typescript.svg" />Typescript <br>
 
 ## Contributions
