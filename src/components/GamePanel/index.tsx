@@ -117,7 +117,7 @@ const GamePanel: React.FC<GamePanelProps> = ({
 
   // Handle Input Change
   const handleInputChange = useCallback(e => {
-    setInput(e.target.value);
+    setInput(e.target.value.toLowerCase());
   }, []);
 
   return (
