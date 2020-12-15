@@ -3,16 +3,20 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import shuffle from '../../utils/arrayShuffle';
 
-import { Container, Input, KanaDisplay, Score } from './styles';
+import Score from '../Score';
+import KanaDisplay from '../KanaDisplay';
+import UserInput from '../UserInput';
+
+import { Container } from './styles';
 
 import {
-  hiragana,
-  composedHiragana,
-  katakana,
-  composedKatakana,
-  hiraganaKeyMap,
-  katakanaKeyMap,
-} from '../../utils/kana';
+  hiraganaMonographs,
+  hiraganaDigraphs,
+  katakanaMonographs,
+  katakanaDigraphs,
+} from '../../utils/kanaArrays';
+
+import { hiraganaKeyMap, katakanaKeyMap } from '../../utils/kanaKeyMaps';
 
 interface GamePanelProps {
   focus: boolean;
@@ -30,7 +34,10 @@ const GamePanel: React.FC<GamePanelProps> = ({
   kanaControl,
 }) => {
   const [kanaList, setKanaList] = useState(() => {
-    const kanaArray = kanaType === 'hiragana' ? [...hiragana] : [...katakana];
+    const kanaArray =
+      kanaType === 'hiragana'
+        ? [...hiraganaMonographs]
+        : [...katakanaMonographs];
     const shuffledKanaArray = shuffle(kanaArray);
     return shuffledKanaArray;
   });
@@ -47,15 +54,15 @@ const GamePanel: React.FC<GamePanelProps> = ({
   const buildKanaList = useCallback((): string[] => {
     if (kanaType === 'hiragana') {
       const unfilteredKanaList = isComposedKana
-        ? shuffle([...hiragana, ...composedHiragana])
-        : shuffle([...hiragana]);
+        ? shuffle([...hiraganaMonographs, ...hiraganaDigraphs])
+        : shuffle([...hiraganaMonographs]);
       return unfilteredKanaList.filter(e => kanaControl[e]);
     }
 
     if (kanaType === 'katakana') {
       const unfilteredKanaList = isComposedKana
-        ? shuffle([...katakana, ...composedKatakana])
-        : shuffle([...katakana]);
+        ? shuffle([...katakanaMonographs, ...katakanaDigraphs])
+        : shuffle([...katakanaMonographs]);
       return unfilteredKanaList.filter(e => kanaControl[e]);
     }
 
@@ -122,16 +129,15 @@ const GamePanel: React.FC<GamePanelProps> = ({
 
   return (
     <Container>
-      <KanaDisplay>{kanaList[0]}</KanaDisplay>
-      <Input
-        ref={inputRef}
-        value={input}
-        onChange={handleInputChange}
-        onKeyDown={handleSubmit}
+      <KanaDisplay kanaList={kanaList} />
+
+      <UserInput
+        inputRef={inputRef}
+        inputValue={input}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
       />
-      <Score>
-        {score} / {attempts}
-      </Score>
+      <Score score={score} attempts={attempts} />
     </Container>
   );
 };

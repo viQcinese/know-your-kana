@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface IButtonProps {
-  legend?: string;
+  tooltip?: string;
   fixedLegend?: string;
 }
 
@@ -31,7 +31,7 @@ export const Button = styled.button<IButtonProps>`
   }
 
   &&::after {
-    content: '${props => props.legend}';
+    content: '${props => props.tooltip}';
     font-size: 16px;
     font-weight: normal;
     color: transparent;

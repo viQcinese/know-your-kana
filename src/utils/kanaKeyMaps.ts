@@ -1,8 +1,121 @@
-interface IKeyMap {
+export interface IKanaKeyMap {
+  a: string;
+  e: string;
+  i: string;
+  o: string;
+  u: string;
+  ka: string;
+  ke: string;
+  ki: string;
+  ko: string;
+  ku: string;
+  sa: string;
+  se: string;
+  si: string;
+  shi: string;
+  so: string;
+  su: string;
+  ta: string;
+  te: string;
+  ti: string;
+  chi: string;
+  to: string;
+  tu: string;
+  tsu: string;
+  na: string;
+  ne: string;
+  ni: string;
+  no: string;
+  nu: string;
+  ha: string;
+  he: string;
+  hi: string;
+  ho: string;
+  hu: string;
+  fu: string;
+  ma: string;
+  me: string;
+  mi: string;
+  mo: string;
+  mu: string;
+  ya: string;
+  yo: string;
+  yu: string;
+  ra: string;
+  re: string;
+  ri: string;
+  ro: string;
+  ru: string;
+  wa: string;
+  wo: string;
+  ga: string;
+  ge: string;
+  gi: string;
+  go: string;
+  gu: string;
+  za: string;
+  ze: string;
+  zi: string;
+  ji: string;
+  zo: string;
+  zu: string;
+  da: string;
+  de: string;
+  di: string;
+  do: string;
+  du: string;
+  dzu: string;
+  ba: string;
+  be: string;
+  bi: string;
+  bo: string;
+  bu: string;
+  pa: string;
+  pe: string;
+  pi: string;
+  po: string;
+  pu: string;
+  n: string;
+  kya: string;
+  kyu: string;
+  kyo: string;
+  sha: string;
+  shu: string;
+  sho: string;
+  cha: string;
+  chu: string;
+  cho: string;
+  hya: string;
+  hyu: string;
+  hyo: string;
+  bya: string;
+  byu: string;
+  byo: string;
+  pya: string;
+  pyu: string;
+  pyo: string;
+  mya: string;
+  myu: string;
+  myo: string;
+  rya: string;
+  ryu: string;
+  ryo: string;
+  gya: string;
+  gyu: string;
+  gyo: string;
+  ja: string;
+  ju: string;
+  jo: string;
+  nya: string;
+  nyu: string;
+  nyo: string;
+}
+
+export interface IGenericKeyMap {
   [key: string]: string;
 }
 
-export const hiraganaKeyMap: IKeyMap = {
+export const hiraganaKeyMap: IGenericKeyMap = {
   a: 'あ',
   e: 'え',
   i: 'い',
@@ -115,117 +228,7 @@ export const hiraganaKeyMap: IKeyMap = {
   nyo: 'にょ',
 };
 
-export const hiragana = [
-  'あ',
-  'え',
-  'い',
-  'お',
-  'う',
-  'か',
-  'け',
-  'き',
-  'こ',
-  'く',
-  'さ',
-  'せ',
-  'し',
-  'そ',
-  'す',
-  'た',
-  'て',
-  'ち',
-  'と',
-  'つ',
-  'な',
-  'ね',
-  'に',
-  'の',
-  'ぬ',
-  'は',
-  'へ',
-  'ひ',
-  'ほ',
-  'ふ',
-  'ま',
-  'め',
-  'み',
-  'も',
-  'む',
-  'や',
-  'よ',
-  'ゆ',
-  'ら',
-  'れ',
-  'り',
-  'ろ',
-  'る',
-  'わ',
-  'を',
-  'が',
-  'げ',
-  'ぎ',
-  'ご',
-  'ぐ',
-  'ざ',
-  'ぜ',
-  'じ',
-  'ぞ',
-  'ず',
-  'だ',
-  'で',
-  'ぢ',
-  'ど',
-  'づ',
-  'ば',
-  'べ',
-  'び',
-  'ぼ',
-  'ぶ',
-  'ぱ',
-  'ぺ',
-  'ぴ',
-  'ぽ',
-  'ぷ',
-  'ん',
-];
-
-export const composedHiragana = [
-  'きゃ',
-  'きゅ',
-  'きょ',
-  'しゃ',
-  'しゅ',
-  'しょ',
-  'ちゃ',
-  'ちゅ',
-  'ちょ',
-  'ひゃ',
-  'ひゅ',
-  'ひょ',
-  'みゃ',
-  'みゅ',
-  'みょ',
-  'りゃ',
-  'りゅ',
-  'りょ',
-  'ぎゃ',
-  'ぎゅ',
-  'ぎょ',
-  'じゃ',
-  'じゅ',
-  'じょ',
-  'にゃ',
-  'にゅ',
-  'にょ',
-  'びゃ',
-  'びゅ',
-  'びょ',
-  'ぴゃ',
-  'ぴゅ',
-  'ぴょ',
-];
-
-export const katakanaKeyMap: IKeyMap = {
+export const katakanaKeyMap: IGenericKeyMap = {
   a: 'ア',
   e: 'エ',
   i: 'イ',
@@ -247,6 +250,7 @@ export const katakanaKeyMap: IKeyMap = {
   ti: 'チ',
   chi: 'チ',
   to: 'ト',
+  tu: 'ツ',
   tsu: 'ツ',
   na: 'ナ',
   ne: 'ネ',
@@ -281,6 +285,7 @@ export const katakanaKeyMap: IKeyMap = {
   gu: 'グ',
   za: 'ザ',
   ze: 'ゼ',
+  zi: 'ジ',
   ji: 'ジ',
   zo: 'ゾ',
   zu: 'ズ',
@@ -289,6 +294,7 @@ export const katakanaKeyMap: IKeyMap = {
   di: 'ヂ',
   do: 'ド',
   du: 'ヅ',
+  dzu: 'ヅ',
   ba: 'バ',
   be: 'ベ',
   bi: 'ビ',
@@ -334,113 +340,3 @@ export const katakanaKeyMap: IKeyMap = {
   pyu: 'ピュ',
   pyo: 'ピョ',
 };
-
-export const katakana = [
-  'ア',
-  'エ',
-  'イ',
-  'オ',
-  'ウ',
-  'カ',
-  'ケ',
-  'キ',
-  'コ',
-  'ク',
-  'サ',
-  'セ',
-  'シ',
-  'ソ',
-  'ス',
-  'タ',
-  'テ',
-  'チ',
-  'ト',
-  'ツ',
-  'ナ',
-  'ネ',
-  'ニ',
-  'ノ',
-  'ヌ',
-  'ハ',
-  'ヘ',
-  'ヒ',
-  'ホ',
-  'フ',
-  'マ',
-  'メ',
-  'ミ',
-  'モ',
-  'ム',
-  'ヤ',
-  'ヨ',
-  'ユ',
-  'ラ',
-  'レ',
-  'リ',
-  'ロ',
-  'ル',
-  'ワ',
-  'ヲ',
-  'ガ',
-  'ゲ',
-  'ギ',
-  'ゴ',
-  'グ',
-  'ザ',
-  'ゼ',
-  'ジ',
-  'ゾ',
-  'ズ',
-  'ダ',
-  'デ',
-  'ヂ',
-  'ド',
-  'ヅ',
-  'バ',
-  'ベ',
-  'ビ',
-  'ボ',
-  'ブ',
-  'パ',
-  'ペ',
-  'ピ',
-  'ポ',
-  'プ',
-  'ン',
-];
-
-export const composedKatakana = [
-  'キャ',
-  'キュ',
-  'キョ',
-  'シャ',
-  'シュ',
-  'ショ',
-  'チャ',
-  'チュ',
-  'チョ',
-  'ヒャ',
-  'ヒュ',
-  'ヒョ',
-  'ミャ',
-  'ミュ',
-  'ミョ',
-  'リャ',
-  'リュ',
-  'リョ',
-  'ギャ',
-  'ギュ',
-  'ギョ',
-  'ジャ',
-  'ジュ',
-  'ジョ',
-  'ニャ',
-  'ニュ',
-  'ニョ',
-  'ビャ',
-  'ビュ',
-  'ビョ',
-  'ピャ',
-  'ピュ',
-  'ピョ',
-];

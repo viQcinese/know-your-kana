@@ -1,21 +1,26 @@
-import React from  'react'
+import React from 'react';
 
-import { Button } from './styles'
+import { Button } from './styles';
 
 interface IRoundButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  legend?: string;
+  tooltip?: string;
   fixedLegend?: string;
 }
 
-const RoundButton: React.FC<IRoundButtonProps> = ({ legend, fixedLegend, onClick, children }) => {
+const RoundButton: React.FC<IRoundButtonProps> = ({
+  tooltip,
+  fixedLegend,
+  onClick,
+  children,
+}) => {
   return (
     <>
-      <Button onClick={onClick} legend={legend} fixedLegend={fixedLegend}>
-        { children }
+      <Button onClick={onClick} tooltip={tooltip} fixedLegend={fixedLegend}>
+        {children}
       </Button>
     </>
-  )
-}
+  );
+};
 
-export default RoundButton
+export default RoundButton;

@@ -1,5 +1,23 @@
 import styled from 'styled-components';
 
+interface IShadowOverlay {
+  display: boolean;
+}
+
+export const ShadowOverlay = styled.div<IShadowOverlay>`
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0, 0.7);
+  z-index: ${props => (props.display ? 1 : -1)};
+  position: absolute;
+  display: ${props => (props.display ? 'flex' : 'none')};
+
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s;
+`;
+
 export const Modal = styled.div`
   position: absolute;
   text-align: center;
