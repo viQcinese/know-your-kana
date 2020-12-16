@@ -2,12 +2,14 @@ import styled from 'styled-components';
 
 export const TitleContainer = styled.div`
   h1 {
-    letter-spacing: 4px;
+    font-size: 56px;
+    letter-spacing: 2px;
     color: #470e0e;
-    font-weight: normal;
+    font-weight: 300;
     margin-bottom: 16px;
+
     b {
-      font-weight: 800;
+      font-weight: 600;
     }
   }
 `;

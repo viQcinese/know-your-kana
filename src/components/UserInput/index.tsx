@@ -3,24 +3,21 @@ import React from 'react';
 import { Input } from './styles';
 
 interface IUserInput {
-  inputRef: any;
-  inputValue: any;
-  handleInputChange: any;
-  handleSubmit: any;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  inputRef: React.RefObject<HTMLInputElement>;
 }
 
 const UserInput: React.FC<IUserInput> = ({
+  value,
+  onChange,
+  onSubmit,
   inputRef,
-  inputValue,
-  handleSubmit,
-  handleInputChange,
 }) => (
-  <Input
-    ref={inputRef}
-    value={inputValue}
-    onChange={handleInputChange}
-    onKeyDown={handleSubmit}
-  />
+  <form onSubmit={onSubmit}>
+    <Input value={value} onChange={onChange} ref={inputRef} />
+  </form>
 );
 
 export default UserInput;

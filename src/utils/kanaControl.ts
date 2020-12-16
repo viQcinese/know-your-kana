@@ -1,218 +1,4 @@
-export interface IHiraganaControl {
-  あ: boolean;
-  え: boolean;
-  い: boolean;
-  お: boolean;
-  う: boolean;
-  か: boolean;
-  け: boolean;
-  き: boolean;
-  こ: boolean;
-  く: boolean;
-  さ: boolean;
-  せ: boolean;
-  し: boolean;
-  そ: boolean;
-  す: boolean;
-  た: boolean;
-  て: boolean;
-  ち: boolean;
-  と: boolean;
-  つ: boolean;
-  な: boolean;
-  ね: boolean;
-  に: boolean;
-  の: boolean;
-  ぬ: boolean;
-  は: boolean;
-  へ: boolean;
-  ひ: boolean;
-  ほ: boolean;
-  ふ: boolean;
-  ま: boolean;
-  め: boolean;
-  み: boolean;
-  も: boolean;
-  む: boolean;
-  や: boolean;
-  よ: boolean;
-  ゆ: boolean;
-  ら: boolean;
-  れ: boolean;
-  り: boolean;
-  ろ: boolean;
-  る: boolean;
-  わ: boolean;
-  を: boolean;
-  が: boolean;
-  げ: boolean;
-  ぎ: boolean;
-  ご: boolean;
-  ぐ: boolean;
-  ざ: boolean;
-  ぜ: boolean;
-  じ: boolean;
-  ぞ: boolean;
-  ず: boolean;
-  だ: boolean;
-  で: boolean;
-  ぢ: boolean;
-  ど: boolean;
-  づ: boolean;
-  ば: boolean;
-  べ: boolean;
-  び: boolean;
-  ぼ: boolean;
-  ぶ: boolean;
-  ぱ: boolean;
-  ぺ: boolean;
-  ぴ: boolean;
-  ぽ: boolean;
-  ぷ: boolean;
-  ん: boolean;
-  きゃ: boolean;
-  きゅ: boolean;
-  きょ: boolean;
-  しゃ: boolean;
-  しゅ: boolean;
-  しょ: boolean;
-  ちゃ: boolean;
-  ちゅ: boolean;
-  ちょ: boolean;
-  ひゃ: boolean;
-  ひゅ: boolean;
-  ひょ: boolean;
-  みゃ: boolean;
-  みゅ: boolean;
-  みょ: boolean;
-  りゃ: boolean;
-  りゅ: boolean;
-  りょ: boolean;
-  ぎゃ: boolean;
-  ぎゅ: boolean;
-  ぎょ: boolean;
-  じゃ: boolean;
-  じゅ: boolean;
-  じょ: boolean;
-  にゃ: boolean;
-  にゅ: boolean;
-  にょ: boolean;
-  びゃ: boolean;
-  びゅ: boolean;
-  びょ: boolean;
-  ぴゃ: boolean;
-  ぴゅ: boolean;
-  ぴょ: boolean;
-}
-
-export interface IKatakanaControl {
-  ア: boolean;
-  エ: boolean;
-  イ: boolean;
-  オ: boolean;
-  ウ: boolean;
-  カ: boolean;
-  ケ: boolean;
-  キ: boolean;
-  コ: boolean;
-  ク: boolean;
-  サ: boolean;
-  セ: boolean;
-  シ: boolean;
-  ソ: boolean;
-  ス: boolean;
-  タ: boolean;
-  テ: boolean;
-  チ: boolean;
-  ト: boolean;
-  ツ: boolean;
-  ナ: boolean;
-  ネ: boolean;
-  ニ: boolean;
-  ノ: boolean;
-  ヌ: boolean;
-  ハ: boolean;
-  ヘ: boolean;
-  ヒ: boolean;
-  ホ: boolean;
-  フ: boolean;
-  マ: boolean;
-  メ: boolean;
-  ミ: boolean;
-  モ: boolean;
-  ム: boolean;
-  ヤ: boolean;
-  ヨ: boolean;
-  ユ: boolean;
-  ラ: boolean;
-  レ: boolean;
-  リ: boolean;
-  ロ: boolean;
-  ル: boolean;
-  ワ: boolean;
-  ヲ: boolean;
-  ガ: boolean;
-  ゲ: boolean;
-  ギ: boolean;
-  ゴ: boolean;
-  グ: boolean;
-  ザ: boolean;
-  ゼ: boolean;
-  ジ: boolean;
-  ゾ: boolean;
-  ズ: boolean;
-  ダ: boolean;
-  デ: boolean;
-  ヂ: boolean;
-  ド: boolean;
-  ヅ: boolean;
-  バ: boolean;
-  ベ: boolean;
-  ビ: boolean;
-  ボ: boolean;
-  ブ: boolean;
-  パ: boolean;
-  ペ: boolean;
-  ピ: boolean;
-  ポ: boolean;
-  プ: boolean;
-  ン: boolean;
-  キャ: boolean;
-  キュ: boolean;
-  キョ: boolean;
-  シャ: boolean;
-  シュ: boolean;
-  ショ: boolean;
-  チャ: boolean;
-  チュ: boolean;
-  チョ: boolean;
-  ヒャ: boolean;
-  ヒュ: boolean;
-  ヒョ: boolean;
-  ミャ: boolean;
-  ミュ: boolean;
-  ミョ: boolean;
-  リャ: boolean;
-  リュ: boolean;
-  リョ: boolean;
-  ギャ: boolean;
-  ギュ: boolean;
-  ギョ: boolean;
-  ジャ: boolean;
-  ジュ: boolean;
-  ジョ: boolean;
-  ニャ: boolean;
-  ニュ: boolean;
-  ニョ: boolean;
-  ビャ: boolean;
-  ビュ: boolean;
-  ビョ: boolean;
-  ピャ: boolean;
-  ピュ: boolean;
-  ピョ: boolean;
-}
-
-export const hiraganaControl = {
+export const hiraganaControlBase = {
   あ: true,
   え: true,
   い: true,
@@ -319,7 +105,7 @@ export const hiraganaControl = {
   ぴょ: true,
 };
 
-export const katakanaControl = {
+export const katakanaControlBase = {
   ア: true,
   エ: true,
   イ: true,
@@ -426,7 +212,7 @@ export const katakanaControl = {
   ピョ: true,
 };
 
-export interface IKanaControlBlocks {
+export interface IKanaControlRows {
   a: boolean;
   k: boolean;
   s: boolean;
@@ -439,22 +225,39 @@ export interface IKanaControlBlocks {
   w: boolean;
 }
 
-export interface IBuildKanaControl {
-  kanaControlBlocks: IKanaControlBlocks;
-  kanaControl: { [key: string]: boolean };
-  kanaType: 'hiragana' | 'katakana';
+export const kanaControlRowsBase = {
+  a: true,
+  k: false,
+  s: false,
+  t: false,
+  n: false,
+  h: false,
+  m: false,
+  y: false,
+  r: false,
+  w: false,
+};
+
+export interface IKanaControl {
+  [key: string]: boolean;
+}
+
+interface IBuildKanaControl {
+  kanaControlRows: IKanaControlRows;
+  kanaControl: IKanaControl;
+  isKatakana: boolean;
 }
 
 export const buildKanaControl = ({
-  kanaControlBlocks,
+  kanaControlRows,
   kanaControl,
-  kanaType,
-}: IBuildKanaControl): { [key: string]: boolean } => {
+  isKatakana,
+}: IBuildKanaControl): IKanaControl => {
   const newKanaControl = JSON.parse(JSON.stringify(kanaControl));
 
-  if (kanaType === 'hiragana') {
+  if (!isKatakana) {
     ['あ', 'い', 'う', 'え', 'お'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.a;
+      newKanaControl[kana] = kanaControlRows.a;
     });
 
     [
@@ -475,7 +278,7 @@ export const buildKanaControl = ({
       'ぎゅ',
       'ぎょ',
     ].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.k;
+      newKanaControl[kana] = kanaControlRows.k;
     });
 
     [
@@ -496,7 +299,7 @@ export const buildKanaControl = ({
       'じゅ',
       'じょ',
     ].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.s;
+      newKanaControl[kana] = kanaControlRows.s;
     });
 
     [
@@ -517,11 +320,11 @@ export const buildKanaControl = ({
       'ぢゅ',
       'ぢょ',
     ].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.t;
+      newKanaControl[kana] = kanaControlRows.t;
     });
 
     ['な', 'に', 'ぬ', 'ね', 'の', 'にゃ', 'にゅ', 'にょ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.n;
+      newKanaControl[kana] = kanaControlRows.n;
     });
 
     [
@@ -550,29 +353,29 @@ export const buildKanaControl = ({
       'ぴゅ',
       'ぴょ',
     ].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.h;
+      newKanaControl[kana] = kanaControlRows.h;
     });
 
     ['ま', 'み', 'む', 'め', 'も', 'みゃ', 'みゅ', 'みょ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.m;
+      newKanaControl[kana] = kanaControlRows.m;
     });
 
     ['や', 'ゆ', 'よ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.y;
+      newKanaControl[kana] = kanaControlRows.y;
     });
 
     ['ら', 'り', 'る', 'れ', 'ろ', 'りゃ', 'りゅ', 'りょ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.r;
+      newKanaControl[kana] = kanaControlRows.r;
     });
 
     ['わ', 'ん', 'を'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.w;
+      newKanaControl[kana] = kanaControlRows.w;
     });
   }
 
-  if (kanaType === 'katakana') {
+  if (isKatakana) {
     ['ア', 'イ', 'ウ', 'エ', 'オ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.a;
+      newKanaControl[kana] = kanaControlRows.a;
     });
 
     [
@@ -593,7 +396,7 @@ export const buildKanaControl = ({
       'ギュ',
       'ギョ',
     ].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.k;
+      newKanaControl[kana] = kanaControlRows.k;
     });
 
     [
@@ -614,7 +417,7 @@ export const buildKanaControl = ({
       'ジュ',
       'ジョ',
     ].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.s;
+      newKanaControl[kana] = kanaControlRows.s;
     });
 
     [
@@ -635,11 +438,11 @@ export const buildKanaControl = ({
       'ヂュ',
       'ヂョ',
     ].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.t;
+      newKanaControl[kana] = kanaControlRows.t;
     });
 
     ['ナ', 'ニ', 'ヌ', 'ネ', 'ノ', 'ニャ', 'ニュ', 'ニョ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.n;
+      newKanaControl[kana] = kanaControlRows.n;
     });
 
     [
@@ -668,23 +471,23 @@ export const buildKanaControl = ({
       'ピュ',
       'ピョ',
     ].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.h;
+      newKanaControl[kana] = kanaControlRows.h;
     });
 
     ['マ', 'ミ', 'ム', 'メ', 'モ', 'ミャ', 'ミュ', 'ミョ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.m;
+      newKanaControl[kana] = kanaControlRows.m;
     });
 
     ['ヤ', 'ユ', 'ヨ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.y;
+      newKanaControl[kana] = kanaControlRows.y;
     });
 
     ['ラ', 'リ', 'ル', 'レ', 'ロ', 'リャ', 'リュ', 'リョ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.r;
+      newKanaControl[kana] = kanaControlRows.r;
     });
 
     ['ワ', 'ン', 'ヲ'].forEach(kana => {
-      newKanaControl[kana] = kanaControlBlocks.w;
+      newKanaControl[kana] = kanaControlRows.w;
     });
   }
 
