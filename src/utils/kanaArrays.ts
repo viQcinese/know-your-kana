@@ -44,6 +44,10 @@ export const hiraganaMonographs = [
   'る',
   'わ',
   'を',
+  'ん',
+];
+
+export const hiraganaMonographDiacritics = [
   'が',
   'げ',
   'ぎ',
@@ -69,7 +73,6 @@ export const hiraganaMonographs = [
   'ぴ',
   'ぽ',
   'ぷ',
-  'ん',
 ];
 
 export const hiraganaDigraphs = [
@@ -82,6 +85,9 @@ export const hiraganaDigraphs = [
   'ちゃ',
   'ちゅ',
   'ちょ',
+  'にゃ',
+  'にゅ',
+  'にょ',
   'ひゃ',
   'ひゅ',
   'ひょ',
@@ -91,15 +97,18 @@ export const hiraganaDigraphs = [
   'りゃ',
   'りゅ',
   'りょ',
+];
+
+export const hiraganaDigraphDiacritics = [
   'ぎゃ',
   'ぎゅ',
   'ぎょ',
   'じゃ',
   'じゅ',
   'じょ',
-  'にゃ',
-  'にゅ',
-  'にょ',
+  'ぢゃ',
+  'ぢゅ',
+  'ぢょ',
   'びゃ',
   'びゅ',
   'びょ',
@@ -154,6 +163,10 @@ export const katakanaMonographs = [
   'ル',
   'ワ',
   'ヲ',
+  'ン',
+];
+
+export const katakanaMonographDiacritics = [
   'ガ',
   'ゲ',
   'ギ',
@@ -179,7 +192,6 @@ export const katakanaMonographs = [
   'ピ',
   'ポ',
   'プ',
-  'ン',
 ];
 
 export const katakanaDigraphs = [
@@ -192,6 +204,9 @@ export const katakanaDigraphs = [
   'チャ',
   'チュ',
   'チョ',
+  'ニャ',
+  'ニュ',
+  'ニョ',
   'ヒャ',
   'ヒュ',
   'ヒョ',
@@ -201,15 +216,18 @@ export const katakanaDigraphs = [
   'リャ',
   'リュ',
   'リョ',
+];
+
+export const katakanaDigraphDiacritics = [
   'ギャ',
   'ギュ',
   'ギョ',
   'ジャ',
   'ジュ',
   'ジョ',
-  'ニャ',
-  'ニュ',
-  'ニョ',
+  'ヂャ',
+  'ヂュ',
+  'ヂョ',
   'ビャ',
   'ビュ',
   'ビョ',

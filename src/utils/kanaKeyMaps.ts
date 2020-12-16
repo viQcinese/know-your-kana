@@ -1,4 +1,4 @@
-export interface IKanaKeyMap {
+interface IKanaKeyMap {
   a: string;
   e: string;
   i: string;
@@ -48,6 +48,7 @@ export interface IKanaKeyMap {
   ru: string;
   wa: string;
   wo: string;
+  n: string;
   ga: string;
   ge: string;
   gi: string;
@@ -64,7 +65,6 @@ export interface IKanaKeyMap {
   di: string;
   do: string;
   du: string;
-  dzu: string;
   ba: string;
   be: string;
   bi: string;
@@ -75,7 +75,6 @@ export interface IKanaKeyMap {
   pi: string;
   po: string;
   pu: string;
-  n: string;
   kya: string;
   kyu: string;
   kyo: string;
@@ -85,6 +84,9 @@ export interface IKanaKeyMap {
   cha: string;
   chu: string;
   cho: string;
+  tya: string;
+  tyu: string;
+  tyo: string;
   hya: string;
   hyu: string;
   hyo: string;
@@ -106,16 +108,22 @@ export interface IKanaKeyMap {
   ja: string;
   ju: string;
   jo: string;
+  jya: string;
+  jyu: string;
+  jyo: string;
+  zya: string;
+  zyu: string;
+  zyo: string;
   nya: string;
   nyu: string;
   nyo: string;
 }
 
-export interface IGenericKeyMap {
+interface IGenericKanaKeyMap {
   [key: string]: string;
 }
 
-export const hiraganaKeyMap: IGenericKeyMap = {
+export const hiraganaKeyMap: IGenericKanaKeyMap = {
   a: 'あ',
   e: 'え',
   i: 'い',
@@ -181,7 +189,6 @@ export const hiraganaKeyMap: IGenericKeyMap = {
   di: 'ぢ',
   do: 'ど',
   du: 'づ',
-  dzu: 'づ',
   ba: 'ば',
   be: 'べ',
   bi: 'び',
@@ -202,6 +209,9 @@ export const hiraganaKeyMap: IGenericKeyMap = {
   cha: 'ちゃ',
   chu: 'ちゅ',
   cho: 'ちょ',
+  tya: 'ちゃ',
+  tyu: 'ちゅ',
+  tyo: 'ちょ',
   hya: 'ひゃ',
   hyu: 'ひゅ',
   hyo: 'ひょ',
@@ -223,12 +233,18 @@ export const hiraganaKeyMap: IGenericKeyMap = {
   ja: 'じゃ',
   ju: 'じゅ',
   jo: 'じょ',
+  jya: 'じゃ',
+  jyu: 'じゅ',
+  jyo: 'じょ',
+  zya: 'じゃ',
+  zyu: 'じゅ',
+  zyo: 'じょ',
   nya: 'にゃ',
   nyu: 'にゅ',
   nyo: 'にょ',
 };
 
-export const katakanaKeyMap: IGenericKeyMap = {
+export const katakanaKeyMap: IGenericKanaKeyMap = {
   a: 'ア',
   e: 'エ',
   i: 'イ',
@@ -294,7 +310,6 @@ export const katakanaKeyMap: IGenericKeyMap = {
   di: 'ヂ',
   do: 'ド',
   du: 'ヅ',
-  dzu: 'ヅ',
   ba: 'バ',
   be: 'ベ',
   bi: 'ビ',
@@ -315,6 +330,9 @@ export const katakanaKeyMap: IGenericKeyMap = {
   cha: 'チャ',
   chu: 'チュ',
   cho: 'チョ',
+  tya: 'チャ',
+  tyu: 'チュ',
+  tyo: 'チョ',
   hya: 'ヒャ',
   hyu: 'ヒュ',
   hyo: 'ヒョ',
@@ -330,6 +348,12 @@ export const katakanaKeyMap: IGenericKeyMap = {
   ja: 'ジャ',
   ju: 'ジュ',
   jo: 'ジョ',
+  jya: 'ジャ',
+  jyu: 'ジュ',
+  jyo: 'ジョ',
+  zya: 'ジャ',
+  zyu: 'ジュ',
+  zyo: 'ジョ',
   nya: 'ニャ',
   nyu: 'ニュ',
   nyo: 'ニョ',

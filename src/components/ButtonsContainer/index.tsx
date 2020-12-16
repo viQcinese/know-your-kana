@@ -9,6 +9,8 @@ interface IButtonsContainerProps {
   handleSetIsKatakana: () => void;
   isDigraphEnabled: boolean;
   handleSetIsDigraphEnabled: () => void;
+  isDiacriticsEnabled: boolean;
+  handleSetIsDiacriticsEnabled: () => void;
   toggleKanaTable: (event: React.MouseEvent) => void;
 }
 
@@ -17,6 +19,8 @@ const ButtonsContainer: React.FC<IButtonsContainerProps> = ({
   handleSetIsKatakana,
   isDigraphEnabled,
   handleSetIsDigraphEnabled,
+  isDiacriticsEnabled,
+  handleSetIsDiacriticsEnabled,
   toggleKanaTable,
 }) => (
   <Container>
@@ -25,6 +29,13 @@ const ButtonsContainer: React.FC<IButtonsContainerProps> = ({
       tooltip={isKatakana ? 'katakana' : 'hiragana'}
     >
       {isKatakana ? 'カ' : 'あ'}
+    </RoundButton>
+
+    <RoundButton
+      onClick={handleSetIsDiacriticsEnabled}
+      tooltip={isDiacriticsEnabled ? 'diacritics' : 'no diacritics'}
+    >
+      {isDiacriticsEnabled ? 'が' : 'か'}
     </RoundButton>
 
     <RoundButton

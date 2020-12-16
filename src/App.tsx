@@ -8,9 +8,13 @@ import React, {
 
 import {
   hiraganaMonographs,
+  hiraganaMonographDiacritics,
   hiraganaDigraphs,
+  hiraganaDigraphDiacritics,
   katakanaMonographs,
+  katakanaMonographDiacritics,
   katakanaDigraphs,
+  katakanaDigraphDiacritics,
 } from './utils/kanaArrays';
 import {
   kanaControlRowsBase,
@@ -34,6 +38,7 @@ import Score from './components/Score';
 const Main: React.FC = () => {
   const [isKatakana, setIsKatakana] = useState<boolean>(false);
   const [isDigraphEnabled, setIsDigraphEnabled] = useState(false);
+  const [isDiacriticsEnabled, setIsDiacriticsEnabled] = useState(false);
   const [kanaQueue, setKanaQueue] = useState(hiraganaMonographs);
   const [kanaKeyMap, setKanaKeyMap] = useState(hiraganaKeyMap);
   const [totalGuesses, setTotalGuesses] = useState(0);
@@ -76,22 +81,46 @@ const Main: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const buildKanaQueue = useCallback(() => {
-    let newQueue;
+    let newQueue: string[] = [];
 
     if (isKatakana) {
-      newQueue = isDigraphEnabled
-        ? [...katakanaMonographs, ...katakanaDigraphs]
-        : [...katakanaMonographs];
+      newQueue = newQueue.concat(katakanaMonographs);
+      if (isDigraphEnabled && isDiacriticsEnabled) {
+        newQueue = newQueue.concat(katakanaDigraphs);
+        newQueue = newQueue.concat(katakanaDigraphDiacritics);
+        newQueue = newQueue.concat(katakanaMonographDiacritics);
+      } else if (isDigraphEnabled && !isDiacriticsEnabled) {
+        newQueue = newQueue.concat(katakanaDigraphs);
+      } else if (!isDigraphEnabled && isDiacriticsEnabled) {
+        newQueue = newQueue.concat(katakanaMonographDiacritics);
+      }
+
       newQueue = newQueue.filter(kana => katakanaControl[kana]);
-    } else {
-      newQueue = isDigraphEnabled
-        ? [...hiraganaMonographs, ...hiraganaDigraphs]
-        : [...hiraganaMonographs];
+    }
+
+    if (!isKatakana) {
+      newQueue = newQueue.concat(hiraganaMonographs);
+      if (isDigraphEnabled && isDiacriticsEnabled) {
+        newQueue = newQueue.concat(hiraganaDigraphs);
+        newQueue = newQueue.concat(hiraganaDigraphDiacritics);
+        newQueue = newQueue.concat(hiraganaMonographDiacritics);
+      } else if (isDigraphEnabled && !isDiacriticsEnabled) {
+        newQueue = newQueue.concat(hiraganaDigraphs);
+      } else if (!isDigraphEnabled && isDiacriticsEnabled) {
+        newQueue = newQueue.concat(hiraganaMonographDiacritics);
+      }
+
       newQueue = newQueue.filter(kana => hiraganaControl[kana]);
     }
 
     return shuffle(newQueue);
-  }, [isKatakana, isDigraphEnabled, hiraganaControl, katakanaControl]);
+  }, [
+    isKatakana,
+    isDigraphEnabled,
+    isDiacriticsEnabled,
+    hiraganaControl,
+    katakanaControl,
+  ]);
 
   const updateKanaQueue = useCallback(() => {
     if (kanaQueue.length > 1) {
@@ -112,6 +141,10 @@ const Main: React.FC = () => {
 
   const handleSetIsKatakana = useCallback(() => {
     setIsKatakana(old => !old);
+  }, []);
+
+  const handleSetIsDiacriticsEnabled = useCallback(() => {
+    setIsDiacriticsEnabled(old => !old);
   }, []);
 
   const handleSetIsDigraphEnabled = useCallback(() => {
@@ -198,6 +231,8 @@ const Main: React.FC = () => {
           isKatakana={isKatakana}
           handleSetIsDigraphEnabled={handleSetIsDigraphEnabled}
           isDigraphEnabled={isDigraphEnabled}
+          handleSetIsDiacriticsEnabled={handleSetIsDiacriticsEnabled}
+          isDiacriticsEnabled={isDiacriticsEnabled}
           toggleKanaTable={toggleKanaTable}
         />
 
