@@ -153,7 +153,7 @@ const Main: React.FC = () => {
 
   const handleSetinputValue = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      setInputValue(event.target.value);
+      setInputValue(event.target.value.toLocaleLowerCase());
     },
     [],
   );
