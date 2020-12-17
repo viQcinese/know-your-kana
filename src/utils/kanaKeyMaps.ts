@@ -78,15 +78,33 @@ interface IKanaKeyMap {
   kya: string;
   kyu: string;
   kyo: string;
+  gya: string;
+  gyu: string;
+  gyo: string;
   sha: string;
   shu: string;
   sho: string;
+  ja: string;
+  ju: string;
+  jo: string;
+  jya: string;
+  jyu: string;
+  jyo: string;
+  zya: string;
+  zyu: string;
+  zyo: string;
   cha: string;
   chu: string;
   cho: string;
   tya: string;
   tyu: string;
   tyo: string;
+  dya: string;
+  dyu: string;
+  dyo: string;
+  nya: string;
+  nyu: string;
+  nyo: string;
   hya: string;
   hyu: string;
   hyo: string;
@@ -102,21 +120,6 @@ interface IKanaKeyMap {
   rya: string;
   ryu: string;
   ryo: string;
-  gya: string;
-  gyu: string;
-  gyo: string;
-  ja: string;
-  ju: string;
-  jo: string;
-  jya: string;
-  jyu: string;
-  jyo: string;
-  zya: string;
-  zyu: string;
-  zyo: string;
-  nya: string;
-  nyu: string;
-  nyo: string;
 }
 
 interface IGenericKanaKeyMap {
@@ -212,6 +215,9 @@ export const hiraganaKeyMap: IGenericKanaKeyMap = {
   tya: 'ちゃ',
   tyu: 'ちゅ',
   tyo: 'ちょ',
+  dya: 'ぢゃ',
+  dyu: 'ぢゅ',
+  dyo: 'ぢょ',
   hya: 'ひゃ',
   hyu: 'ひゅ',
   hyo: 'ひょ',
@@ -333,6 +339,9 @@ export const katakanaKeyMap: IGenericKanaKeyMap = {
   tya: 'チャ',
   tyu: 'チュ',
   tyo: 'チョ',
+  dya: 'ヂャ',
+  dyu: 'ヂュ',
+  dyo: 'ヂョ',
   hya: 'ヒャ',
   hyu: 'ヒュ',
   hyo: 'ヒョ',

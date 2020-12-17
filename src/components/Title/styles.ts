@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Header = styled.h1`
+  text-align: center;
   font-size: 56px;
   letter-spacing: 2px;
   color: #470e0e;
